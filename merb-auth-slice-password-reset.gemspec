@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Daniel Neighman, Christian Kebekus"]
-  s.date = %q{2009-01-10}
+  s.date = %q{2009-04-30}
   s.description = %q{Merb Slice that adds basic password-reset functionality to merb-auth-based merb applications.}
   s.email = %q{has.sox@gmail.com}
   s.extra_rdoc_files = ["README.textile", "LICENSE", "TODO"]
@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://merbivore.com/}
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{merb}
-  s.rubygems_version = %q{1.3.0}
+  s.rubygems_version = %q{1.3.1}
   s.summary = %q{Merb Slice that adds basic password-reset functionality to merb-auth-based merb applications.}
 
   if s.respond_to? :specification_version then

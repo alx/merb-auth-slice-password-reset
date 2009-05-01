@@ -46,14 +46,14 @@ module Merb
             self.password = self.password_confirmation = Digest::SHA1.hexdigest( Time.now.to_s.split(//).sort_by {rand}.join )[0, 7]
             send_new_password
             self.password_reset_code = nil
-            self.save
+            respond_to?(:save!) ? save! : save
           end
 
           def generate_password_reset_code
             pwreset_key_success = false
             until pwreset_key_success
               self.password_reset_code = self.class.make_key
-              self.save
+              respond_to?(:save!) ? save! : save
               pwreset_key_success = self.errors.on(:password_reset_code).nil? ? true : false 
             end
           end
