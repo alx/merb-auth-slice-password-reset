@@ -58,7 +58,7 @@ if defined?(Merb::Plugins)
     #   to avoid potential conflicts with global named routes.
     def self.setup_router(scope)
       scope.match("/reset_password/:password_reset_code", :method => :get).to(:controller => "passwords", :action => "reset").name(:reset_password)
-      scope.match("/reset_check/:password_reset_code", :method => :post).to(:controller => "passwords", :action => "reset_check")
+      scope.match("/reset_check/:password_reset_code", :method => :post).to(:controller => "passwords", :action => "reset_check").name(:reset_check)
       scope.match("/forgot_password", :method => :get).to(:controller => "passwords", :action => "forgot_password").name(:forgot_password)
       scope.match("/forgot_password", :method => :post).to(:controller => "passwords", :action => "send_confirmation")
     end

@@ -44,7 +44,7 @@ describe "passwords" do
     end
     
     it "should send the completed form params to /reset_check" do
-      @response.should have_xpath("//form[@action='reset_check']")
+      @response.should have_xpath("//form[@action='/reset_check/#{@code}']")
     end
     
     it "should have password and password_confirmation attributes wrapped in a user object" do
@@ -77,7 +77,7 @@ describe "passwords" do
       class User; def update_attributes(val); return false; end; end
       response = request("/reset_check/#{@code}", :method => "POST",
         :params => { :user => { :password => :blah, :password_confirmation => :blah } } )
-      response.should have_xpath("//form[@action='reset_check']")
+      response.should have_xpath("//form[@action='/reset_check/#{@code}']")
     end
     
   end

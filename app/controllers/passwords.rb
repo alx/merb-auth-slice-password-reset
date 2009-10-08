@@ -43,7 +43,7 @@ class MerbAuthSlicePasswordReset::Passwords <  MerbAuthSlicePasswordReset::Appli
   end
   
   def redirect_after_sending_confirmation
-    redirect "/", :message => {:notice => "Password reset confirmation sent".t}
+    redirect "/", :message => {:notice => "Password reset link sent to your email".t}
   end
 
 end # MerbAuthSlicePasswordReset::Passwords
