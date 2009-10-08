@@ -1,3 +1,10 @@
+h3. Fork Info
+
+The behavior of this fork is different from its parent.  Instead of auto-generating a password
+on the reset action of the Passwords controller a form is sent that asks the user to create a new
+password.  The default is for a :password and :password_confirmation field to be sent, but you
+could override that in your own app.
+
 h3. MerbAuthSliceActivation
 
 This slice provides a check to make sure that a user is active on login.  It also provides 

@@ -34,11 +34,12 @@ Merb::BootLoader.before_app_loads do
   class User
     include DataMapper::Resource
     include Merb::Authentication::Mixins::SenileUser
-
     property :id,    Serial
     property :email, String
     property :login, String
+    property :password, String
 
+    def password_confirmation=(val); end;
   end
 
   class Merb::Authentication

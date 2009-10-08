@@ -1,0 +1,14 @@
+<div class="error"><%= message[:error] %></div>
+<h1>Please set a new password</h1>
+
+<form action="reset_check" method="post">
+  <p>
+    <input type="text" name="user[password]" value="" id="user_password">
+      <label>Password</label>
+    </input>
+    <input type="password" name="user[password_confirmation]" value="" id="user_password_confirmation">
+      <label>Confirmation</label>
+    </input>
+  </p>
+  <input type="submit" value="Reset password" />
+</form>

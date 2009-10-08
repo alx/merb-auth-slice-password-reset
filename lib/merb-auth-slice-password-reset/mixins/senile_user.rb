@@ -44,13 +44,6 @@ module Merb
         end # ClassMethods
 
         module InstanceMethods
-          
-          def reset_password!
-            self.password = self.password_confirmation = Digest::SHA1.hexdigest( Time.now.to_s.split(//).sort_by {rand}.join )[0, 7]
-            send_new_password
-            self.password_reset_code = nil
-            self.save
-          end
 
           def generate_password_reset_code
             pwreset_key_success = false
