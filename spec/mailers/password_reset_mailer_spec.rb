@@ -19,7 +19,8 @@ describe "PasswordResetMailer" do
     end
 
     before(:each) do
-      @u = User.new(:email => "homer@simpsons.com", :login => "homer", :password_reset_code => "12345")
+      @u = User.new(:email => "homer@simpsons.com", :login => "homer")
+      @u.send(:password_reset_code=, "12345")
       @mailer_params = { :from => "info@mysite.com", :to => @u.email, :subject => "Welcome to MySite.com" }
     end
 
