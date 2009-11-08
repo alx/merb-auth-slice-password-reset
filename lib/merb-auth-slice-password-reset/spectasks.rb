@@ -1,5 +1,5 @@
 namespace :slices do
-  namespace :merb_auth_slice_password_reset do
+  namespace :"merb-auth-slice-password-reset" do
 
     desc "Run slice specs within the host application context"
     task :spec => [ "spec:explain", "spec:default" ]

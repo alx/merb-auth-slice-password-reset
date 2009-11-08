@@ -1,5 +1,5 @@
 namespace :slices do
-  namespace :merb_auth_slice_password_reset do
+  namespace :"merb-auth-slice-password-reset" do
 
     desc "Install MerbAuthSlicePasswordReset"
     task :install => [:preflight, :setup_directories, :copy_assets, :migrate]
