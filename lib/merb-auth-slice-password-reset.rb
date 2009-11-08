@@ -2,10 +2,6 @@ if defined?(Merb::Plugins)
 
   $:.unshift File.dirname(__FILE__)
 
-  dependency 'merb-slices'
-  dependency 'merb-auth-core'
-  dependency 'merb-auth-more'
-  dependency 'merb-mailer'
   require(File.expand_path(File.dirname(__FILE__) / "merb-auth-slice-password-reset" / "mixins") / "senile_user")
   
   Merb::Plugins.add_rakefiles "merb-auth-slice-password-reset/merbtasks", "merb-auth-slice-password-reset/slicetasks", "merb-auth-slice-password-reset/spectasks"
