@@ -1,0 +1,15 @@
+<h1>Please set a new password</h1>
+
+<form action="<%= slice_url(:reset_check) %>" method="post">
+  <table>
+    <tr>
+      <td>Password</td>
+      <td><input type="password" name="user[password]" value="" id="user_password" /></td>
+    </tr>
+    <tr>
+      <td>Confirmation</td>
+      <td><input type="password" name="user[password_confirmation]" value="" id="user_password_confirmation" /></td>
+    </tr>
+  </table>
+  <input type="submit" value="Reset password" />
+</form>

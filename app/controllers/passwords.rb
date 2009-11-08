@@ -18,16 +18,28 @@ class MerbAuthSlicePasswordReset::Passwords <  MerbAuthSlicePasswordReset::Appli
   end
 
   def reset
-    session.user = Merb::Authentication.user_class.find_with_password_reset_code(params[:password_reset_code])
-    raise NotFound if session.user.nil?
-    session.user.reset_password!
-    redirect_after_password_reset
+    @user = Merb::Authentication.user_class.find_with_password_reset_code(params[:password_reset_code])
+    raise NotFound if @user.nil?
+    render
+  end
+
+  def reset_check
+    @user = Merb::Authentication.user_class.find_with_password_reset_code(params[:password_reset_code])
+    # FIXME: This only works for DataMapper right now.  I assume that the ActiveORM abstraction
+    #        will have a method that works for all ORMs.
+    raise NotFound if @user.nil?
+    if @user.update_attributes(params[:user])
+      redirect_after_password_reset
+    else
+      message[:error] = @user.errors.map { |e| e.to_s }.join(" and ") if @user.errors
+      render :reset
+    end
   end
 
   private
 
   def redirect_after_password_reset
-    redirect "/", :message => {:notice => "New password sent".t}
+    redirect "/", :message => {:notice => "Your password has been changed".t}
   end
   
   def redirect_after_sending_confirmation
