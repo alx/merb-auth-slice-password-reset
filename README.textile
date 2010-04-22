@@ -46,48 +46,48 @@ h3. Configuration Options
 
 These options may be declared in your @init.rb@ or @environment/*.rb@ files
 
-Use the standard slice configuration hash to set these up @Merb::Slices::config[:'merb-auth-slice-activation']@
+Use the standard slice configuration hash to set these up @Merb::Slices::config[:merb_auth_slice_password_reset]@
 
 
 h4. Required
 
-:from_email         # The email account to send the email from
-:activation_host    # The host to go to for activation.  This is used to construct the 
-                    # activation link.  Symbol, String or Procs are available.
-                    # Procs will have the @user@ object passed in
+:from_email                 # The email account to send the email from
+:password_reset_host        # The host to go to for activation.  This is used to construct the 
+                            # activation link.  Symbol, String or Procs are available.
+                            # Procs will have the @user@ object passed in
 
 h4. Optional
 
-:welcome_subject    # The subject of the email to send after activation (Welcome)
+:password_reset_subject     # The subject of the email to send after activation (Welcome)
 
 h3. Customizing the emails
 
 To customize your emails, rake the slices stubs
 
 <pre><code>
-	$ rake slices:merb-auth-slice-activation:stubs
+	$ rake slices:merb_auth_slice_password_reset:stubs
 </code></pre>
 
-This will create stubs of the views in @slices/merb-auth-slice-activation/app/mailers/views/@
+This will create stubs of the views in @slices/merb_auth_slice_password_reset/app/mailers/views/@
 
 To create HTML emails just add an html template like @signup.html.erb@
 
 h3. Customize the Redirect after activation
 
 rake the slices stubs as above. There is an @activations.rb@ controller in the
-@slices/merb-auth-slice-activation/app/controllers@ directory.  You can overwrite the stubbed 
+@slices/merb_auth_slice_password_reset/app/controllers@ directory.  You can overwrite the stubbed 
 method in there to have it change it's redirection behavior.
 
 
 # Rake tasks to package/install the gem - edit this to modify the manifest.
 # The slice application: controllers, models, helpers, views.
-# The default layout, as specified in @Merb::Slices::config[:'merb-auth-slice-activation'][:layout]@ change this to :application to use the app's layout.
+# The default layout, as specified in @Merb::Slices::config[:merb_auth_slice_password_reset][:layout]@ change this to :application to use the app's layout.
 # Standard rake tasks available to your application.
 # Your custom application rake tasks.
 # The main slice file - contains all slice setup @logic/config@.
-# Public assets you (optionally) install using @rake slices:merb-auth-slice-activation:install@
+# Public assets you (optionally) install using @rake slices:merb_auth_slice_password_reset:install@
 # Specs for basis slice behaviour - you usually adapt these for your slice.
-# Stubs of classes/views/files for the end-user to override - usually these mimic the files in @app/@ and/or @public/@; use @rake slices:merb-auth-slice-activation:stubs@ to get started with the override stubs. Also, @rake slices:merb-auth-slice-activation:patch@ will copy over views to override in addition to the files found in /stubs.
+# Stubs of classes/views/files for the end-user to override - usually these mimic the files in @app/@ and/or @public/@; use @rake slices:merb_auth_slice_password_reset:stubs@ to get started with the override stubs. Also, @rake slices:merb_auth_slice_password_reset:patch@ will copy over views to override in addition to the files found in /stubs.
    
 
 To see all available tasks for MerbAuthSliceActivation run:
@@ -99,13 +99,15 @@ To see all available tasks for MerbAuthSliceActivation run:
 
 h3. Instructions for installation:
 
-h4. @config/init.rb@
+h4. @Gemfile@
 
 Add the slice as a regular dependency
 
 <pre><code>
-	dependency 'merb-auth-slice-password-reset'
+	gem "merb-auth-slice-password-reset"
 </code></pre>
+
+h4. @config/init.rb@
 
 If needed, configure which slices to load and in which order
 
