@@ -74,7 +74,7 @@ describe "passwords" do
     end
 
     it "should render the reset form if the user can't be saved" do
-      class User; def update_attributes(val); return false; end; end
+      class User; def update(val); return false; end; end
       response = request("/reset_check/#{@code}", :method => "POST",
         :params => { :user => { :password => :blah, :password_confirmation => :blah } } )
       response.should have_xpath("//form[@action='/reset_check/#{@code}']")

@@ -28,7 +28,7 @@ class MerbAuthSlicePasswordReset::Passwords <  MerbAuthSlicePasswordReset::Appli
     # FIXME: This only works for DataMapper right now.  I assume that the ActiveORM abstraction
     #        will have a method that works for all ORMs.
     raise NotFound if @user.nil?
-    if @user.update_attributes(params[:user])
+    if @user.update(params[:user])
       redirect_after_password_reset
     else
       message[:error] = @user.errors.map { |e| e.to_s }.join(" and ") if @user.errors
