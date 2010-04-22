@@ -1,11 +1,7 @@
 if defined?(Merb::Plugins)
 
   $:.unshift File.dirname(__FILE__)
-
-  dependency 'merb-slices'
-  dependency 'merb-auth-core'
-  dependency 'merb-auth-more'
-  dependency 'merb-mailer'
+  
   require(File.expand_path(File.dirname(__FILE__) / "merb-auth-slice-password-reset" / "mixins") / "senile_user")
   
   Merb::Plugins.add_rakefiles "merb-auth-slice-password-reset/merbtasks", "merb-auth-slice-password-reset/slicetasks", "merb-auth-slice-password-reset/spectasks"
@@ -27,7 +23,7 @@ if defined?(Merb::Plugins)
 
     # Slice metadata
     self.description = "MerbAuthSlicePasswordReset is a merb slice that adds password-reset functionality for merb-auth-based merb applications."
-    self.version = "0.9.10"
+    self.version = "1.1.0"
     self.author = "Daniel Neighman, Christian Kebekus"
 
     # Stub classes loaded hook - runs before LoadClasses BootLoader
