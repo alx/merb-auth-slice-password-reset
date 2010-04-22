@@ -29,16 +29,17 @@ Merb::Slices::config[:merb_auth_slice_password_reset][:password_reset_host] = "e
 
 
 Merb::BootLoader.before_app_loads do
-  require "datamapper"
+  require "dm-core"
   DataMapper.setup(:default, "sqlite3::memory:")
   class User
     include DataMapper::Resource
     include Merb::Authentication::Mixins::SenileUser
-
     property :id,    Serial
     property :email, String
     property :login, String
+    property :password, String
 
+    def password_confirmation=(val); end;
   end
 
   class Merb::Authentication

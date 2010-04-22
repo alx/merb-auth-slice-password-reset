@@ -10,10 +10,4 @@ class MerbAuthSlicePasswordReset::PasswordResetMailer < Merb::MailController
     render_mail :layout => nil
   end
   
-  def new_password
-    @user = params[:user]
-    Merb.logger.info "Sending New Password to #{@user.email} with password #{@user.password}"
-    render_mail :layout => nil
-  end
-
 end

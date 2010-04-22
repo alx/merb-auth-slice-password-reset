@@ -1,15 +1,13 @@
-h3. MerbAuthSliceActivation
+h3. Fork Info
 
-This slice provides a check to make sure that a user is active on login.  It also provides 
-activation on the "user" object via an activation action (slice_url :activate).  When loggin in,
-the "user" object found by merb-auth-core will be asked
+The behavior of this fork is different from its parent.  Instead of auto-generating a password
+on the reset action of the Passwords controller a form is sent that asks the user to create a new
+password.  The default is for a :password and :password_confirmation field to be sent, but you
+could override that in your own app.
 
-Do you respond_to?(:active?):
-# If yes, check if active and return the user if they are
-# If no,  return the user (i.e. no activation check)
+h3. MerbAuthSlicePasswordReset
 
-This slice adds a mixin that you should include in your user model to priovide the active? method. 
-The mixin will automatically select the correct sub mixin for all supported orms. 
+This slice provides a way for users to reset their forgotten password. Passwords are mailed to them and they can then use the form provided to reset them.
  
 <pre><code>
 class User

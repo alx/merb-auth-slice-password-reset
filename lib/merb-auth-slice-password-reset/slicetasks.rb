@@ -1,5 +1,5 @@
 namespace :slices do
-  namespace :merb_auth_slice_password_reset do 
+  namespace :"merb-auth-slice-password-reset" do 
     
     # add your own merb-auth-slice-password-reset tasks here
     
